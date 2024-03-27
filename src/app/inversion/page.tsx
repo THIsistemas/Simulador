@@ -13,15 +13,13 @@ const 	[inversion, setInversion] = useState<number>(0)
 const 	[pagoMensual, setPagoMensual] = useState<number>(0)
 
 	const handleInversion = () =>{
-		let tasainteres:number = tasaInteres/100 
- 		let tasaInteresNeta:number = tasainteres*meses
-		let montoInteres:number = inversion*tasaInteresNeta
+		let tasainteres:number = (tasaInteres/100) 
+ 		let tasaInteresNeta:number = tasainteres/meses
+		let montoInteres:number = (inversion*tasainteres)
 		let pagomensual: number = (inversion+montoInteres)/meses
 
 		setMontoTotal(montoInteres)
 		setPagoMensual(pagomensual)
-		
-	
 	}
 
 
@@ -88,10 +86,10 @@ const 	[pagoMensual, setPagoMensual] = useState<number>(0)
 				Meses : <span className="text-black font-normal"> {meses} Meses </span>
 			</h1>
 			<h1 className="font-bold flex justify-between pt-2">
-				Tasa Interes Mensual : <span className="text-black font-normal"> {tasaInteres} % </span>
+				Tasa Interes Mensual : <span className="text-black font-normal"> {numeral((tasaInteres)/meses).format('0.000')}% </span>
 			</h1>
 			<h1 className="font-bold flex justify-between pt-2">
-				Tasa Interes Neta : <span className="text-black font-normal"> {(tasaInteres*meses)} % </span>
+				Tasa Interes Anual : <span className="text-black font-normal"> {(tasaInteres)} % </span>
 			</h1>
 			<h1 className="font-bold flex justify-between pt-2">
 				Rendimiento : <span className="text-black font-normal"> {numeral(montoTotal).format('$0,0')} mxn </span>
