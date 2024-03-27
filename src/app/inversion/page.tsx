@@ -30,14 +30,15 @@ const 	[pagoMensual, setPagoMensual] = useState<number>(0)
     <main className=" text-black w-full h-auto static bg-slate-200">
      
       <div className=" bg-slate-200 h-full sm:flex grid p-10 sm:p-20 sm:justify-center justify-items-center">
-			<div className="bg-slate-200 w-1/3 sm:flex  ">
-			
+			<div className="bg-slate-200 w-auto sm:flex  ">
+				<h1 className="text-primary text-3xl font-semibold sm:hidden flex ">
+			Simula tu Inversión!
+			</h1>
 			<form className=" grid justify-evenly m-auto p-5  w-full" action="submit" onSubmit={()=>handleInversion}>
-			<h1 className="text-primary text-3xl font-semibold ">
+			<h1 className="text-primary text-3xl font-semibold hidden sm:flex ">
 			Simula tu Inversión!
 			</h1>
 			<Input
-              value={(inversion).toString()}
               type="text"
               onChange={(e)=> setInversion(Number(e.target.value))}
               label="Monto a Invertir"
@@ -48,7 +49,6 @@ const 	[pagoMensual, setPagoMensual] = useState<number>(0)
 
 				/>
 			<Input
-              value={(meses).toString()}
               type="text"
               onChange={(e)=> setMeses(Number(e.target.value))}
               label="Meses a financiar"
@@ -58,7 +58,6 @@ const 	[pagoMensual, setPagoMensual] = useState<number>(0)
               id="meses"
             />
 			<Input
-              value={(tasaInteres).toString()}
               type="text"
               onChange={(e)=> setTasaInteres(Number(e.target.value))}
               label="Tasa de Interes"
