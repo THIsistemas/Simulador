@@ -92,9 +92,6 @@ const 	[pagoMensual, setPagoMensual] = useState<number>(0)
 				Tasa Interes Mensual : <span className="text-black font-normal"> {tasaInteres} % </span>
 			</h1>
 			<h1 className="font-bold flex justify-between pt-2">
-				Tasa Interes Anual : <span className="text-black font-normal"> {((tasaInteres*meses)/((tasaInteres*meses)/12))} % </span>
-			</h1>
-			<h1 className="font-bold flex justify-between pt-2">
 				Tasa Interes Neta : <span className="text-black font-normal"> {(tasaInteres*meses)} % </span>
 			</h1>
 			<h1 className="font-bold flex justify-between pt-2">
