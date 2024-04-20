@@ -47,6 +47,7 @@ const 	[enganche, setEnganche] = useState<number>(0)
 const 	[TotalconIntereses, setTotalConIntereses] = useState<number>(0)
 const 	[totalReal, setTotalReal] = useState<number>(0)
 const 	[montodeInteres, setMontoDeInteres] = useState<number>(0)
+const 	[anualidad, setAnualidad] = useState<number>(0)
 const 	[cliente, setCliente] = useState<string>("")
 
 	const handleInversion = () =>{
@@ -57,7 +58,7 @@ const 	[cliente, setCliente] = useState<string>("")
 		let TotalconIntereses:number = (CostoaFinanciar + montodeinteres) 
 		let TotalReal:number = (precioTotalpormetro2 + montodeinteres)
 		/* let montoInteres:number = (inversion*tasaInteres) */
-		let pagomensual: number = (CostoaFinanciar+montodeinteres)/meses
+		let pagomensual: number = (CostoaFinanciar+montodeinteres-anualidad)/meses
 
 		setprecioTotalPorMetro2(precioTotalpormetro2)
 		setTotalReal(TotalReal)
@@ -147,6 +148,15 @@ const corrida = corridafinanciera( fecha, (totalReal-enganche), meses, pagoMensu
               name="enganche"
               id="enganche"
             />
+				<Input
+              type="text"
+              onChange={(e)=> setAnualidad(Number(e.target.value))}
+              label="Anualidad"
+			  className='text-black pt-10'
+              variant='flat'
+              name="anualidad"
+              id="anualidad"
+            />
 			<Input
               type="text"
               onChange={(e)=> setMeses(Number(e.target.value))}
@@ -189,6 +199,9 @@ const corrida = corridafinanciera( fecha, (totalReal-enganche), meses, pagoMensu
 			</h1>
 			<h1 className="font-bold flex justify-between pt-2">
 				Precio por metro Cuadrado : <span className="text-black font-normal"> {numeral(precioxmetro).format('$0,0')} mxn </span>
+			</h1>
+			<h1 className="font-bold flex justify-between pt-2">
+				Anualidad : <span className="text-black font-normal"> {numeral(anualidad).format('$0,0')} mxn </span>
 			</h1>
 			<h1 className="font-bold flex justify-between pt-2">
 				Meses : <span className="text-black font-normal"> {meses} Meses </span>
