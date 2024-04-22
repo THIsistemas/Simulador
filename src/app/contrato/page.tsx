@@ -5,6 +5,8 @@ import { useState } from "react";
 import moment from "moment"
 import 'moment/locale/es';
 import { isEmpty, isNumber } from "../lib/validators";
+import Imprimir from "./imprimir";
+import Corrida from "./corrida";
 
 const columns = [
   {
@@ -107,11 +109,11 @@ const corrida = corridafinanciera( fecha, (totalReal-enganche), meses, pagoMensu
      
       <div className=" bg-slate-200 h-full sm:flex grid p-10 sm:p-20 sm:justify-center justify-items-center">
 			<div className="bg-slate-200 w-auto sm:flex  ">
-				<h1 className="text-primary text-3xl font-semibold sm:hidden flex ">
+				<h1 className="text-primary text-3xl font-semibold sm:hidden flex print:hidden ">
           
 			Simula una Corrida Financiera!
 			</h1>
-			<form className=" grid justify-evenly m-auto p-5  w-full" action="submit" onSubmit={()=>handleInversion}>
+			<form className=" grid justify-evenly m-auto p-5 w-full print:hidden" action="submit" onSubmit={()=>handleInversion}>
 			<h1 className="text-primary text-3xl font-semibold hidden sm:flex ">
 			Simula un Corrida Financiera!
 			</h1>
@@ -195,9 +197,9 @@ const corrida = corridafinanciera( fecha, (totalReal-enganche), meses, pagoMensu
 			        errorMessage={!isNumber(tasaInteres.toString()) && "Porfavor escriba un valor correcto"}
             />
 			<div className="pt-10">
-			<Button className="bg-primary text-white" onClick={handleInversion} isDisabled = {!isValid}>
+			<Button className="bg-primary text-white print:hidden" onClick={handleInversion} isDisabled = {!isValid}>
 			Simular
-		</Button>
+		  </Button>
 			</div>
 		
 		</form>
@@ -207,7 +209,7 @@ const corrida = corridafinanciera( fecha, (totalReal-enganche), meses, pagoMensu
 		<div className="bg-white drop-shadow-md shadow-black p-5 gap-5 text-black w-90">
 			<h1 className="font-bold text-2xl text-red-700 flex justify-between">
 				Ficha del Cliente
-              <Image className=' shadow-white w-auto h-auto shadow-sm cursor-pointer sm:flex justify-items-center '   width={60} height={60} src={"/descarga.jpg"} alt="logo"  />
+              <Image className=' shadow-white w-auto h-auto shadow-sm sm:flex justify-items-center '   width={60} height={60} src={"/descarga.jpg"} alt="logo"  />
 
 			</h1>
 			<h1 className=" text-red-700 flex justify-between pt-2 text-xl">
@@ -243,9 +245,12 @@ const corrida = corridafinanciera( fecha, (totalReal-enganche), meses, pagoMensu
 			</h1>
 			</div>
 		</div>
+        <Imprimir/>
 		</div>
+
       </div>
-	    <Table aria-label="Example table with dynamic content" className="min-w-24 p-5">
+      <Corrida columns={columns} corrida={corrida}/>
+	    {/* <Table aria-label="Example table with dynamic content" className="min-w-24 p-10">
       <TableHeader columns={columns}>
         {(column) => <TableColumn className="text-red-700 font-bold" key={column.key}>{column.label}</TableColumn>}
       </TableHeader>
@@ -256,7 +261,7 @@ const corrida = corridafinanciera( fecha, (totalReal-enganche), meses, pagoMensu
           </TableRow>
         )}
       </TableBody>
-    </Table>
+    </Table> */}
     </main>
   );
 }
