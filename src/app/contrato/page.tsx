@@ -4,6 +4,7 @@ import { Button, Image, Input, Table, TableBody, TableCell, TableColumn, TableHe
 import { useState } from "react";
 import moment from "moment"
 import 'moment/locale/es';
+import { isEmpty, isNumber } from "../lib/validators";
 
 const columns = [
   {
@@ -49,6 +50,10 @@ const 	[totalReal, setTotalReal] = useState<number>(0)
 const 	[montodeInteres, setMontoDeInteres] = useState<number>(0)
 const 	[anualidad, setAnualidad] = useState<number>(0)
 const 	[cliente, setCliente] = useState<string>("")
+
+const isValid = isNumber(precioxmetro.toString()) && isNumber(meses.toString()) && isNumber(tasaInteres.toString()) && isNumber(enganche.toString())
+console.log(isValid);
+
 
 	const handleInversion = () =>{
 		let precioTotalpormetro2 = (metros * precioxmetro)
@@ -127,6 +132,8 @@ const corrida = corridafinanciera( fecha, (totalReal-enganche), meses, pagoMensu
               variant='flat'
               name="metros"
               id="metros"
+              isInvalid={!isNumber(metros.toString())}
+			        errorMessage={!isNumber(metros.toString()) && "Porfavor escriba un valor"}
 
 				/>
 			<Input
@@ -137,6 +144,8 @@ const corrida = corridafinanciera( fecha, (totalReal-enganche), meses, pagoMensu
               variant='flat'
               name="precio"
               id="precio"
+              isInvalid={!isNumber(precioxmetro.toString())}
+			        errorMessage={!isNumber(precioxmetro.toString()) && "Porfavor escriba un valor"}
 
 				/>
 				<Input
@@ -147,6 +156,8 @@ const corrida = corridafinanciera( fecha, (totalReal-enganche), meses, pagoMensu
               variant='flat'
               name="enganche"
               id="enganche"
+              isInvalid={!isNumber(enganche.toString())}
+			        errorMessage={!isNumber(enganche.toString()) && "Porfavor escriba un valor correcto"}
             />
 				<Input
               type="text"
@@ -156,6 +167,8 @@ const corrida = corridafinanciera( fecha, (totalReal-enganche), meses, pagoMensu
               variant='flat'
               name="anualidad"
               id="anualidad"
+              isInvalid={!isNumber(anualidad.toString())}
+			        errorMessage={!isNumber(anualidad.toString()) && "Porfavor escriba un valor correcto"}
             />
 			<Input
               type="text"
@@ -165,6 +178,8 @@ const corrida = corridafinanciera( fecha, (totalReal-enganche), meses, pagoMensu
               variant='flat'
               name="meses"
               id="meses"
+              isInvalid={!isNumber(meses.toString())}
+			        errorMessage={!isNumber(meses.toString()) && "Porfavor escriba un valor correcto"}
             />
 			
 			<Input
@@ -175,9 +190,11 @@ const corrida = corridafinanciera( fecha, (totalReal-enganche), meses, pagoMensu
               variant='flat'
               name="tasainteres"
               id="tasainteres"
+              isInvalid={!isNumber(tasaInteres.toString())}
+			        errorMessage={!isNumber(tasaInteres.toString()) && "Porfavor escriba un valor correcto"}
             />
 			<div className="pt-10">
-			<Button className="bg-primary text-white" onClick={handleInversion}>
+			<Button className="bg-primary text-white" onClick={handleInversion} isDisabled = {!isValid}>
 			Simular
 		</Button>
 			</div>
