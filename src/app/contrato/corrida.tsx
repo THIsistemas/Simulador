@@ -2,7 +2,7 @@ import { Table, TableBody, TableCell, TableColumn, TableHeader, TableRow, getKey
 import React from 'react'
 import Imprimir from './imprimir'
 
-const Corrida = ({columns, corrida}) => {
+const Corrida = ({columns, corrida}:any) => {
 
   return (
 	<>	
