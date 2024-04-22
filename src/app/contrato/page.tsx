@@ -108,6 +108,7 @@ const corrida = corridafinanciera( fecha, (totalReal-enganche), meses, pagoMensu
       <div className=" bg-slate-200 h-full sm:flex grid p-10 sm:p-20 sm:justify-center justify-items-center">
 			<div className="bg-slate-200 w-auto sm:flex  ">
 				<h1 className="text-primary text-3xl font-semibold sm:hidden flex ">
+          
 			Simula una Corrida Financiera!
 			</h1>
 			<form className=" grid justify-evenly m-auto p-5  w-full" action="submit" onSubmit={()=>handleInversion}>
@@ -204,8 +205,10 @@ const corrida = corridafinanciera( fecha, (totalReal-enganche), meses, pagoMensu
 		</div>
 		<div className="sm:px-10 sm:pt-10 ">
 		<div className="bg-white drop-shadow-md shadow-black p-5 gap-5 text-black w-90">
-			<h1 className="font-bold text-2xl text-red-700">
+			<h1 className="font-bold text-2xl text-red-700 flex justify-between">
 				Ficha del Cliente
+              <Image className=' shadow-white w-auto h-auto shadow-sm cursor-pointer sm:flex justify-items-center '   width={60} height={60} src={"/descarga.jpg"} alt="logo"  />
+
 			</h1>
 			<h1 className=" text-red-700 flex justify-between pt-2 text-xl">
 				 {cliente}
