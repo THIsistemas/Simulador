@@ -52,7 +52,6 @@ const 	[totalReal, setTotalReal] = useState<number>(0)
 const 	[montodeInteres, setMontoDeInteres] = useState<number>(0)
 const 	[anualidad, setAnualidad] = useState<number>(0)
 const 	[cliente, setCliente] = useState<string>("")
-
 const isValid = isNumber(precioxmetro.toString()) && isNumber(meses.toString()) && isNumber(tasaInteres.toString()) && isNumber(enganche.toString())
 console.log(isValid);
 
@@ -72,7 +71,6 @@ console.log(isValid);
 		setTotalConIntereses(TotalconIntereses)
 		setMontoDeInteres(montodeinteres)
 		setPagoMensual(pagomensual)
-		
 	}
 const corridafinanciera = (fecha:Date, montototal:number , pagosafinanciar:number , pagomensual:number, intereses:number) => {
   let corrida = []
@@ -100,6 +98,7 @@ const corridafinanciera = (fecha:Date, montototal:number , pagosafinanciar:numbe
   return corrida;
 }
 const fecha = new Date()
+
 const corrida = corridafinanciera( fecha, (totalReal-enganche), meses, pagoMensual, (totalReal - precioTotalpormetro2))
 
 
@@ -195,6 +194,11 @@ const corrida = corridafinanciera( fecha, (totalReal-enganche), meses, pagoMensu
               id="tasainteres"
               isInvalid={!isNumber(tasaInteres.toString())}
 			        errorMessage={!isNumber(tasaInteres.toString()) && "Porfavor escriba un valor correcto"}
+              onKeyPress={(e) => {
+            if (e.key === "Enter") {
+                handleInversion();
+            }
+        }}
             />
 			<div className="pt-10">
 			<Button className="bg-primary text-white print:hidden" onClick={handleInversion} isDisabled = {!isValid}>
@@ -221,6 +225,9 @@ const corrida = corridafinanciera( fecha, (totalReal-enganche), meses, pagoMensu
 			</h1>
 			<h1 className="font-bold flex justify-between pt-2">
 				Precio por metro Cuadrado : <span className="text-black font-normal"> {numeral(precioxmetro).format('$0,0')} mxn </span>
+			</h1>
+			<h1 className="font-bold flex justify-between pt-2">
+				Enganche : <span className="text-black font-normal"> {numeral(enganche).format('$0,0')} mxn </span>
 			</h1>
 			<h1 className="font-bold flex justify-between pt-2">
 				Anualidad : <span className="text-black font-normal"> {numeral(anualidad).format('$0,0')} mxn </span>
