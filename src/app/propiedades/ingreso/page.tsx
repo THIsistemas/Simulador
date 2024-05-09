@@ -270,7 +270,7 @@ console.log();
     )
 }
       <div className='pt-20'>
-                     <Button className="bg-primary text-white print:hidden  w-full" isDisabled={!isValid}  onClick={RegisterPropiedad}>Registrar</Button>
+                     <Button className="bg-primary text-white print:hidden  w-full hidden md:block" isDisabled={!isValid}  onClick={RegisterPropiedad}>Registrar</Button>
 
       </div>
 
@@ -340,7 +340,10 @@ console.log();
        
      </div> 
           </div>
+ <div className='pt-20'>
+                     <Button className="bg-primary text-white print:hidden  w-full block md:hidden" isDisabled={!isValid}  onClick={RegisterPropiedad}>Registrar</Button>
 
+      </div>
         
       </div>
       
