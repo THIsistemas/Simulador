@@ -4,6 +4,7 @@ import { Button, Image, Input, Table, TableBody, TableCell, TableColumn, TableHe
 import { useState } from "react";
 import moment from "moment"
 import 'moment/locale/es';
+import { isNumber } from "@/lib/validators";
 
 const columns = [
   {
