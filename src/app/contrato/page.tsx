@@ -5,6 +5,8 @@ import { useState } from "react";
 import moment from "moment"
 import 'moment/locale/es';
 import { isNumber } from "@/lib/validators";
+import Imprimir from "./imprimir";
+import Corrida from "./corrida";
 
 const columns = [
   {
