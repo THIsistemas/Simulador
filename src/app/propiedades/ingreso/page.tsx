@@ -62,9 +62,9 @@ const inputsAsesor = [
   {label : "Nombre",
     id: "nombre"
   } ,
-  {label : "Teléfono",
+ /*  {label : "Teléfono",
     id: "telefono"
-  } ,
+  } , */
 ]
 interface Cliente {
   nombre : string
@@ -129,13 +129,13 @@ const defaultModeloNegociosData:ModeloNegocios = {
   }
 
 const inputsModeloNegocios = [
-    {label : "Propiedad",
+    {label : "Nombre de la Propiedad",
     id: "propiedad"
   } ,
  /*  {label : "Tipo",
     id: "tipo"
   } , */
-  {label : "Precio del Terreno",
+  {label : "Precio de la Propiedad",
     id: "precioTerreno"
   } ,
   {label : "Metros Cuadrados de la Propiedad (Terreno)",
@@ -234,7 +234,7 @@ console.log();
         <div className=" md:grid md:grid-cols-2 gap-8">
        
          <div>
-    <h2 className="p-5 flex font-bold text-2xl  text-primary/100 pb-5">
+    <h2 className="p-5 flex font-bold text-2xl  text-black pb-5">
 		        	Datos del Cliente
 			      </h2>
              <div className=' ' >
@@ -252,7 +252,7 @@ console.log();
     )
 }
   <div>
-   <h2 className="p-5 font-bold text-2xl  text-primary/100 pb-5">
+   <h2 className="p-5 font-bold text-2xl  text-black ">
 		        	Datos del Asesor
 			      </h2>
           
@@ -262,20 +262,25 @@ console.log();
     type= "text"
     onChange={handleSetAsesor}
     label= {`${item.label} del Asesor`}
-    className='text-black pt-10'
+    className='text-black pt-5'
     variant='flat'
     name={`${item.id}`}
     id={`${item.id}`}
     />  
     )
 }
+      <div className='pt-20'>
+                     <Button className="bg-primary text-white print:hidden  w-full" isDisabled={!isValid}  onClick={RegisterPropiedad}>Registrar</Button>
+
+      </div>
+
           </div>
           </div>
          </div>
         
          
           <div>
- <h2 className="p-5 font-bold text-2xl  text-primary/100 pb-5">
+ <h2 className="p-5 font-bold text-2xl  text-black pb-5">
 		        	Propiedad y Modelo
 			      </h2>
           <div className='grid grid-cols-2 gap-4 ' >
@@ -335,18 +340,12 @@ console.log();
        
      </div> 
           </div>
-          <div className='flex justify-between align-middle'>
-            <div>
-           <Button className="bg-primary text-white print:hidden " isDisabled={!isValid}  onClick={RegisterPropiedad}>Registrar</Button>
-            </div>
-   {/* <div className={isValid ? "hidden" : " 'pt-5 md:flex  gap-5 md:justify-between   "} >
-      <Imprimir/>
-      </div> */}
-          </div> 
+
+        
       </div>
       
       </form>
-      <div className='  m-36  print:block bg-white'>
+      <div className='  m-36 hidden print:block bg-white'>
       <ModeloPdf props= {modeloNegocios}/>
       </div>
     <div className=' m-36  hidden print:block bg-white'>
