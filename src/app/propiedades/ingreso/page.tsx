@@ -306,7 +306,7 @@ console.log();
 			id='credito'
 			name='credito'
 			>
-        {(tipo) => <SelectItem className='text-black' key={tipo.label}>{tipo.label}</SelectItem>}
+        {(tipo:any) => <SelectItem className='text-black' key={tipo.label}>{tipo.label}</SelectItem>}
     		
       </Select>
        
