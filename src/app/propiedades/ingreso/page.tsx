@@ -1,5 +1,5 @@
 "use client"
-import { Button, Input, Select, SelectItem } from '@nextui-org/react'
+import { Button, Input, Select, SelectItem, Textarea } from '@nextui-org/react'
 import React, { useState } from 'react'
 import ModeloPdf from './modeloPdf'
 import Imprimir from '@/app/contrato/imprimir'
@@ -20,6 +20,8 @@ export interface ModeloNegocios {
   comisionThi: number
   comisionIngresador : number
   comisionCerrador : number
+  descripcion: string
+  documentos: string
   asesor: Asesor
 }
 
@@ -101,9 +103,6 @@ const inputsCliente = [
     id: "direccion"
   } ,
 
-  {label : "Colonia",
-    id: "colonia"
-  } ,
 
  
 
@@ -124,6 +123,8 @@ const defaultModeloNegociosData:ModeloNegocios = {
       comisionIngresador : 0,
       comisionCerrador : 0,
       credito : "",
+      descripcion:"",
+      documentos: "",
       asesor:defaultAsesorData 
   }
 
@@ -137,10 +138,10 @@ const inputsModeloNegocios = [
   {label : "Precio del Terreno",
     id: "precioTerreno"
   } ,
-  {label : "Metros Cuadrados de la Propiedad",
+  {label : "Metros Cuadrados de la Propiedad (Terreno)",
     id: "metrosCuadrados"
   } ,
-  {label : "Metros Construidos de la Propiedad",
+  {label : "Metros Construidos de la Propiedad ",
     id: "metrosConstruidos"
   } ,
   /* {label : "Precio por metro cuadrado",
@@ -152,13 +153,13 @@ const inputsModeloNegocios = [
   {label : "Comision Total",
     id: "comision"
   } ,
-  {label : "Comision para Tu Hogar Inmobiliaria",
+  {label : "Comision para Tu Hogar Inmobiliaria (En Porcentaje) %",
     id: "comisionThi"
   } ,
-  {label : "Comision para el Ingresador",
+  {label : "Comision para el Ingresador (En Porcentaje) %",
     id: "comisionIngresador"
   } ,
-  {label : "Comision para el Cerrador",
+  {label : "Comision para el Cerrador (En Porcentaje) % ",
     id: "comisionCerrador"
   } ,
  
@@ -225,7 +226,7 @@ const handleSetCliente = (
 console.log();
 
   return (
-    <main className='bg-white h-[100vh] w-full '>
+    <main className='bg-white h-[100vh] w-full print:h-full'>
        <form action="submit" className=" p-5 bg-slate-200/90 h-auto w-full rounded-xl shadow-2xl print:hidden">
 			<h2 className="p-5 font-bold text-4xl  text-primary/100 pb-5 text-center">
 			Registra una Propiedad
@@ -291,6 +292,24 @@ console.log();
     />  
     )
 }
+ <Textarea
+    type= "text"
+    onChange={handleSetModelo}
+    label= {`Descripcion de la Propiedad`}
+    className='text-black pt-10'
+    variant='flat'
+    name={`descripcion`}
+    id={`descripcion`}
+    /> 
+ <Textarea
+    type= "text"
+    onChange={handleSetModelo}
+    label= {`Papeleria Entregada`}
+    className='text-black pt-10'
+    variant='flat'
+    name={`documentos`}
+    id={`documentos`}
+    /> 
  <Select
 			items={tipo}
 			label="Escoja el Tipo"
@@ -327,10 +346,10 @@ console.log();
       </div>
       
       </form>
-      <div className=' m-32 hidden print:block bg-white'>
+      <div className='  m-36  print:block bg-white'>
       <ModeloPdf props= {modeloNegocios}/>
       </div>
-    <div className=' m-32 hidden print:block bg-white'>
+    <div className=' m-36  hidden print:block bg-white'>
       <FormatoIngresoPdf props= {modeloNegocios}/>
     </div>
     </main>

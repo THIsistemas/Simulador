@@ -28,7 +28,9 @@ const FormatoIngresoPdf = ( modeloNegocios  : props ) => {
 		precioxm2,
 		propiedad,
 		credito,
-		tipo
+		tipo,
+		descripcion,
+		documentos
 	} = props 
 
 	var numeral = require('numeral');
@@ -36,8 +38,8 @@ const FormatoIngresoPdf = ( modeloNegocios  : props ) => {
   return (
 	<div className='bg-white text-black w-full'>
 		<div className=' grid justify-center bg-white'>
-			<div className='flex justify-between '>
-				<h1 className='text-3xl uppercase font-bold text-center bg-primary text-white h-auto w-auto p-4'>
+			<div className='flex  items-center justify-center '>
+				<h1 className='text-xl items-center justify-center uppercase font-bold text-center bg-primary text-white  p-2'>
 				FORMATO DE INGRESO DE PROPIEDAD
 			</h1>
 			<Image className=' shadow-white w-auto h-auto shadow-sm sm:flex justify-items-center '   width={100} height={100} src={"/descarga.jpg"} alt="logo"  />
@@ -45,13 +47,13 @@ const FormatoIngresoPdf = ( modeloNegocios  : props ) => {
 			</div>
 			
 			<div className='  justify-items-center '>
-			<h2 className=' text-xl font-medium flex justify-center items-center capitalize gap-24 pt-5 border-b-2 border-black/40 pb-1'>
+			<h2 className=' text-base font-medium flex justify-center items-center capitalize gap-12 pt-2 border-b-1 border-black/40 pb-1'>
 				Nombre del Asesor: <span className='font-semibold text-base bg-slate-300/60 p-1 rounded-lg'> {asesor.nombre} </span>
 			</h2>
-			<h2 className=' text-base font-medium flex justify-center items-center capitalize gap-24 pt-5 border-b-2 border-black/40 pb-1'>
+			<h2 className=' text-base font-medium flex justify-center items-center capitalize gap-12 pt-2 border-b-1 border-black/40 pb-1'>
 				Fecha de Ingreso: <span className='font-base text-base bg-slate-300/60 p-1 rounded-lg capitalize'> {moment(new Date()).format("LL")} </span>
 			</h2>
-			<div className='flex gap-10 justify-items-center items-center pt-5 border-b-2 border-black/40 pb-3'>
+			<div className='flex gap-10 justify-items-center items-center pt-2 border-b-1 border-black/40 pb-1'>
 			<h1 className='text-base font-medium'>Tipo:</h1>
 			<h2 className='text-base flex items-center capitalize'>
 			 <IoCheckbox className={tipo === "Casa" ? 'text-green-400' : "hidden"}/> <p className={tipo === "Casa" ? 'font-bold' : "font-normal"}> Casa </p>			 
@@ -69,51 +71,66 @@ const FormatoIngresoPdf = ( modeloNegocios  : props ) => {
 			 <IoCheckbox className={tipo === "Bodega" ? 'text-green-400' : "hidden"}/><p className={tipo === "Bodega" ? 'font-bold' : "font-normal"}> Bodega </p>				 
 			</h2>
 			</div>
-			<h2 className=' text-base font-medium flex justify-center items-center capitalize gap-24 pt-5 border-b-2 border-black/40 pb-1'>
-				Nombre del Propietario: <span className='font-base text-base bg-slate-300/60 p-1 rounded-lg capitalize'> {moment(new Date()).format("LL")} </span>
-			</h2>
-			<h2 className=' text-base font-medium flex justify-center items-center capitalize gap-24 pt-5 border-b-2 border-black/40 pb-1'>
+			
+			<h2 className=' text-base font-medium flex justify-center items-center capitalize gap-24 pt-1 border-b-1 border-black/40 '>
 				Teléfono: <span className='font-base text-base bg-slate-300/60 p-1 rounded-lg capitalize'> {cliente.telefono} </span>
 			</h2>
-			<h2 className=' text-base font-medium flex justify-between capitalize pt-2 border-b-1 border-black/40 pb-1'>
+			<h2 className=' text-base font-medium flex justify-between capitalize pt-1 border-b-1 border-black/40 '>
 				Costo de venta:<span className='font-bold text-base bg-slate-300/60 p-1 rounded-lg'> {numeral(precioTerreno).format("$0,0.00")} mxn </span>
 			</h2>
-			<h2 className=' text-base font-medium flex justify-center gap-5  pt-2 border-b-1 border-black/40 pb-1 '>
+			<h2 className=' text-base font-medium flex justify-center gap-5  pt-1 border-b-1 border-black/40  '>
 				Son:<span className='font-bold text-base bg-slate-300/60 p-1 rounded-lg'>( {numeroALetras(precioTerreno)}) <span className='text-xs font-normal'>pesos Mexicanos </span> </span>
 			</h2>
-			<h2 className=' text-base font-medium flex justify-between  pt-2 border-b-1 border-black/40 pb-1'>
+			<h2 className=' text-base font-medium flex justify-between capitalize pt-1 border-b-1 border-black/40 '>
+				Comisión Total:<span className='font-bold text-base bg-slate-300/60 p-1 rounded-lg'> {numeral(comision).format("$0,0.00")} mxn </span>
+			</h2>
+			<h2 className=' text-base font-medium flex justify-between  pt-1 border-b-1 border-black/40 '>
 				Superficie del Terreno:<span className='font-bold text-base bg-slate-300/60 p-1 rounded-lg'> {metrosCuadrados} m² </span>
 			</h2>
-			<h2 className=' text-base font-medium flex justify-between  pt-2 border-b-1 border-black/40 pb-1'>
+			<h2 className=' text-base font-medium flex justify-between  pt-1 border-b-1 border-black/40 '>
 				Superficie de Construcción:<span className='font-bold text-base bg-slate-300/60 p-1 rounded-lg'> {metrosConstruidos} m² </span>
 			</h2>
-			<h2 className=' text-base font-medium flex justify-between  pt-2 border-b-1 border-black/40 pb-1'>
+			<h2 className=' text-base font-medium flex justify-between  pt-1 border-b-1 border-black/40 '>
+				Ubicación:<span className='font-bold text-base bg-slate-300/60 p-1 rounded-lg'> {cliente.direccion}  </span>
+			</h2>
+			<h2 className=' text-base font-medium flex justify-between  pt-1 border-b-1 border-black/40 '>
 				Precio X M²:<span className='font-bold text-base bg-slate-300/60 p-1 rounded-lg'> {numeral(precioxm2).format("$0,0.00")} mxn </span>
 			</h2>
-			<h2 className=' text-base font-medium flex justify-between  pt-2 border-b-1 border-black/40 pb-1'>
+			<h2 className=' text-base font-medium flex justify-between  pt-1 border-b-1 border-black/40 '>
 				Tipos de Credito<span className='font-bold text-base bg-slate-300/60 p-1 rounded-lg'> {credito}  </span>
 			</h2>
-			<h2 className=' text-base font-medium flex flex-col justify-center items-center capitalize border-b-1 border-black/40 pb-1 pt-14'>
+			<h2 className=' text-base font-medium flex flex-col justify-center items-center capitalize border-b-1 border-black/40  pt-4'>
 				<p>____________________________________________</p>
 				<span className='font-bold text-base bg-slate-300/60 p-1 rounded-lg'> {cliente.nombre} </span>
 			</h2>
+			<h2 className=' text-base font-medium flex flex-col justify-center items-center capitalize border-b-1 border-black/40  pt-4'>
+				<p>Descripcion de la Propiedad</p>
+				<div className='w-full border border-black '>
+				<p className='font-bold text-tiny bg-slate-300/60 p-2 rounded-lg'> {descripcion} </p>
+				</div>
+				<p>Papeleria Entregada</p>
+				<div className='w-full border border-black '>
+				<p className='font-bold text-tiny bg-slate-300/60 p-2 rounded-lg'> {documentos} </p>
+				</div>
+				
+			</h2>
 			</div>
-			<div className='grid grid-cols-2 justify-between gap-3'>
-				<h2 className=' text-base font-medium flex flex-col justify-center items-center capitalize border-black/40 pb-1 pt-14'>
+			<div className='grid grid-cols-2 justify-evenly'>
+				<h2 className=' text-sm font-medium flex flex-col justify-center items-center capitalize border-black/40 pb-4 pt-7'>
 				
-				<span className=' text-base border-t border-black p-1 '> Lic. Miguel Ángel Rodriguez Torres </span>
+				<span className=' text-sm border-t border-black p-1 uppercase '> Lic. Miguel Ángel Rodriguez Torres </span>
 				</h2>
-				<h2 className=' text-base font-medium flex flex-col justify-center items-center capitalize border-black/40 pb-1 pt-14'>
+				<h2 className=' text-sm font-medium flex flex-col justify-center items-center capitalize border-black/40 pb-4 pt-7'>
 				
-				<span className=' text-base border-t border-black p-1'> AREA JURIDICO </span>
+				<span className=' text-sm border-t border-black p-1'> AREA JURIDICO </span>
 				</h2>
-				<h2 className=' text-base font-medium flex flex-col justify-center items-center capitalize border-black/40 pb-1 pt-14'>
+				<h2 className=' text-sm font-medium flex flex-col justify-center items-center capitalize border-black/40 pb-1 pt-7'>
 				
-				<span className=' text-base border-t border-black p-1'> COORDINADOR DE VENTAS </span>
+				<span className=' text-sm border-t border-black p-1'> COORDINADOR DE VENTAS </span>
 				</h2>
-				<h2 className=' text-base font-medium flex flex-col justify-center items-center capitalize border-black/40 pb-1 pt-14'>
+				<h2 className=' text-sm font-medium flex flex-col justify-center items-center capitalize border-black/40 pb-1 pt-7'>
 				
-				<span className=' text-base border-t border-black p-1'> PRODUCCIÓN / MERCADOTECNIA </span>
+				<span className=' text-sm border-t border-black p-1'> PRODUCCIÓN / MERCADOTECNIA </span>
 				</h2>
 			</div>
 			
