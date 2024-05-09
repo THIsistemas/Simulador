@@ -205,8 +205,11 @@ const handleSetCliente = (
  
   const isValid  = comisionThiFlag+comisionIngresadorFlag+comisionCerradorFlag <= modeloNegocios.comision
 
-  const RegisterPropiedad =  () => {
-     setModeloNegocios( {
+  const RegisterPropiedad = async () => {
+
+    await setModeloNegocios(defaultModeloNegociosData)
+
+    await setModeloNegocios( {
     ...modeloNegocios,
     comisionThi: comisionThiFlag,
     comisionIngresador: comisionIngresadorFlag,
@@ -216,6 +219,7 @@ const handleSetCliente = (
     asesor
   })
 
+    window.print();
   
   }
 console.log();
@@ -312,15 +316,16 @@ console.log();
        
      </div> 
           </div>
-            
-      </div>
-         <div className='pt-5 md:flex grid gap-5 md:justify-between '>
-      <Button className="bg-primary text-white print:hidden " isDisabled={!isValid}  onClick={RegisterPropiedad}>Registrar</Button>
-       <h1 className={isValid ? "hidden" : " flex items-center bg-red-700 p-1 rounded-xl w-52  "}>
-          Comisiones no Validas
-      </h1>
+          <div className='flex justify-between align-middle'>
+            <div>
+           <Button className="bg-primary text-white print:hidden " isDisabled={!isValid}  onClick={RegisterPropiedad}>Registrar</Button>
+            </div>
+   {/* <div className={isValid ? "hidden" : " 'pt-5 md:flex  gap-5 md:justify-between   "} >
       <Imprimir/>
-    </div>
+      </div> */}
+          </div> 
+      </div>
+      
       </form>
       <div className=' m-32 hidden print:block bg-white'>
       <ModeloPdf props= {modeloNegocios}/>
