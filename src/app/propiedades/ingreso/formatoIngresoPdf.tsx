@@ -5,6 +5,7 @@ import { IoCheckbox, IoHomeOutline, IoHomeSharp } from 'react-icons/io5'
 import moment from 'moment'
 import 'moment/locale/es';
 import { numeroALetras } from '@/lib/formatearNumerosaLetras';
+import { Image } from '@nextui-org/react';
 
 interface props { 
 	props : ModeloNegocios
@@ -35,9 +36,14 @@ const FormatoIngresoPdf = ( modeloNegocios  : props ) => {
   return (
 	<div className='bg-white text-black w-full'>
 		<div className=' grid justify-center bg-white'>
-			<h1 className='text-3xl uppercase font-bold text-center bg-primary text-white'>
+			<div className='flex justify-between '>
+				<h1 className='text-3xl uppercase font-bold text-center bg-primary text-white h-auto w-auto p-4'>
 				FORMATO DE INGRESO DE PROPIEDAD
 			</h1>
+			<Image className=' shadow-white w-auto h-auto shadow-sm sm:flex justify-items-center '   width={100} height={100} src={"/descarga.jpg"} alt="logo"  />
+
+			</div>
+			
 			<div className='  justify-items-center '>
 			<h2 className=' text-xl font-medium flex justify-center items-center capitalize gap-24 pt-5 border-b-2 border-black/40 pb-1'>
 				Nombre del Asesor: <span className='font-semibold text-base bg-slate-300/60 p-1 rounded-lg'> {asesor.nombre} </span>

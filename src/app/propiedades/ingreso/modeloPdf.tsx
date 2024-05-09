@@ -2,6 +2,7 @@ import React from 'react'
 import { ModeloNegocios } from './page'
 import { IoCheckbox, IoHomeOutline, IoHomeSharp } from 'react-icons/io5'
 import { numeroALetras } from '@/lib/formatearNumerosaLetras'
+import { Image } from '@nextui-org/react'
 
 interface props { 
 	props : ModeloNegocios
@@ -30,9 +31,13 @@ const ModeloPdf = ( modeloNegocios  : props ) => {
   return (
 	<div className='bg-white text-black w-full'>
 		<div className=' grid justify-center bg-white'>
-			<h1 className='text-4xl uppercase font-bold text-center bg-primary text-white'>
+			<div className='flex justify-between gap-10'>
+			<h1 className='text-4xl uppercase font-bold text-center bg-primary text-white h-auto w-auto p-4'>
 				MODELO DE NEGOCIOS
 			</h1>
+			 <Image className=' shadow-white w-auto h-auto shadow-sm sm:flex justify-items-center '   width={100} height={100} src={"/descarga.jpg"} alt="logo"  />
+			</div>
+			
 			<div className='  justify-items-center '>
 			<h2 className=' text-2xl font-medium flex justify-center items-center capitalize gap-24 pt-5 border-b-2 border-black/40 pb-1'>
 				Propiedad : <span className='font-bold text-xl bg-slate-300/60 p-1 rounded-lg'> {propiedad} </span>
