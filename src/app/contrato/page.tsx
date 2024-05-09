@@ -4,6 +4,8 @@ import { Button, Image, Input, Table, TableBody, TableCell, TableColumn, TableHe
 import { useState } from "react";
 import moment from "moment"
 import 'moment/locale/es';
+import { isNumber } from "@/lib/validators";
+import Imprimir from "./imprimir";
 
 const columns = [
   {
@@ -101,7 +103,7 @@ const corrida = corridafinanciera( fecha, (totalReal-enganche), meses, pagoMensu
     <main className=" text-black w-full h-auto static bg-slate-200">
      
       <div className=" bg-slate-200 h-full sm:flex grid p-10 sm:p-20 sm:justify-center justify-items-center">
-			<div className="bg-slate-200 w-auto sm:flex  ">
+			<div className="bg-slate-200 w-auto sm:flex print:hidden  ">
 				<h1 className="text-primary text-3xl font-semibold sm:hidden flex ">
 			Simula una Corrida Financiera!
 			</h1>
@@ -175,6 +177,13 @@ const corrida = corridafinanciera( fecha, (totalReal-enganche), meses, pagoMensu
               variant='flat'
               name="tasainteres"
               id="tasainteres"
+              isInvalid={!isNumber(tasaInteres.toString())}
+			        errorMessage={!isNumber(tasaInteres.toString()) && "Porfavor escriba un valor correcto"}
+              onKeyPress={(e) => {
+            if (e.key === "Enter") {
+                handleInversion();
+            }
+        }}
             />
 			<div className="pt-10">
 			<Button className="bg-primary text-white" onClick={handleInversion}>
@@ -223,9 +232,11 @@ const corrida = corridafinanciera( fecha, (totalReal-enganche), meses, pagoMensu
 			</h1>
 			</div>
 		</div>
+       <Imprimir/>
 		</div>
       </div>
-	    <Table aria-label="Example table with dynamic content" className="min-w-24 p-5">
+      <div className="pt-16">
+        <Table aria-label="Example table with dynamic content" className="min-w-24 p-5">
       <TableHeader columns={columns}>
         {(column) => <TableColumn className="text-red-700 font-bold" key={column.key}>{column.label}</TableColumn>}
       </TableHeader>
@@ -237,6 +248,8 @@ const corrida = corridafinanciera( fecha, (totalReal-enganche), meses, pagoMensu
         )}
       </TableBody>
     </Table>
+      </div>
+	    
     </main>
   );
 }
