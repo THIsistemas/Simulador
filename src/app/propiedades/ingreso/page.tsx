@@ -222,10 +222,9 @@ const handleSetCliente = (
     window.print();
   
   }
-console.log();
 
   return (
-    <main className='bg-white h-[100vh] w-full print:h-full'>
+    <main className='bg-white  w-full'>
        <form action="submit" className=" p-5 bg-slate-200/90 h-auto w-full rounded-xl shadow-2xl print:hidden">
 			<h2 className="p-5 font-bold text-4xl  text-primary/100 pb-5 text-center">
 			Registra una Propiedad
@@ -347,10 +346,10 @@ console.log();
       </div>
       
       </form>
-      <div className='  m-36 hidden print:block bg-white'>
+      <div className='   hidden print:block bg-white pb-10'>
       <ModeloPdf props= {modeloNegocios}/>
       </div>
-    <div className=' m-36  hidden print:block bg-white'>
+    <div className=' hidden print:block bg-white pt-10'>
       <FormatoIngresoPdf props= {modeloNegocios}/>
     </div>
     </main>

@@ -36,7 +36,7 @@ const FormatoIngresoPdf = ( modeloNegocios  : props ) => {
 	var numeral = require('numeral');
 
   return (
-	<div className='bg-white text-black w-full'>
+	
 		<div className=' grid justify-center bg-white'>
 			<div className='flex  items-center justify-center '>
 				<h1 className='text-xl items-center justify-center uppercase font-bold text-center bg-primary text-white  p-2'>
@@ -136,7 +136,6 @@ const FormatoIngresoPdf = ( modeloNegocios  : props ) => {
 			
 			</div>
 			
-		</div>
 	
   )
 }
