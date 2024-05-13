@@ -2,7 +2,6 @@
 import { Button, Input, Select, SelectItem, Textarea } from '@nextui-org/react'
 import React, { useState } from 'react'
 import ModeloPdf from './modeloPdf'
-import Imprimir from '@/app/contrato/imprimir'
 import FormatoIngresoPdf from './formatoIngresoPdf'
 
 
@@ -167,7 +166,7 @@ const inputsModeloNegocios = [
 
 const Ingreso = () => {
 
-  
+ 
 
   
 
@@ -340,8 +339,8 @@ console.log();
        
      </div> 
           </div>
- <div className='pt-20'>
-                     <Button className="bg-primary text-white print:hidden  w-full block md:hidden" isDisabled={!isValid}  onClick={RegisterPropiedad}>Registrar</Button>
+      <div className='pt-20'>
+      <Button className="bg-primary text-white print:hidden  w-full block md:hidden" isDisabled={isValid}  onClick={RegisterPropiedad}>Registrar</Button>
 
       </div>
         

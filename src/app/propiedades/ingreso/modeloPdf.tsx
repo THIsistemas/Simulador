@@ -1,8 +1,8 @@
 import React from 'react'
 import { ModeloNegocios } from './page'
 import { IoCheckbox, IoHomeOutline, IoHomeSharp } from 'react-icons/io5'
-import { numeroALetras } from '@/lib/formatearNumerosaLetras'
 import { Image } from '@nextui-org/react'
+import { NumerosALetras } from '@/app/lib/formatearNumerosaLetras'
 
 interface props { 
 	props : ModeloNegocios
@@ -64,7 +64,7 @@ const ModeloPdf = ( modeloNegocios  : props ) => {
 				Costo del Terreno:<span className='font-bold text-base bg-slate-300/60 p-1 rounded-lg'> {numeral(precioTerreno).format("$0,0.00")} mxn </span>
 			</h2>
 			<h2 className=' text-base font-medium flex justify-center gap-5  pt-2 border-b-1 border-black/40 pb-1 '>
-				Son:<span className='font-bold text-base bg-slate-300/60 p-1 rounded-lg'>( {numeroALetras(precioTerreno)}) <span className='text-xs font-normal'>pesos Mexicanos </span> </span>
+				Son:<span className='font-bold text-base bg-slate-300/60 p-1 rounded-lg'>( {NumerosALetras(precioTerreno)}) <span className='text-xs font-normal'>pesos Mexicanos </span> </span>
 			</h2>
 			<h2 className=' text-base font-medium flex justify-between  pt-2 border-b-1 border-black/40 pb-1'>
 				Metros Cuadrados:<span className='font-bold text-base bg-slate-300/60 p-1 rounded-lg'> {metrosCuadrados} m² </span>
@@ -84,7 +84,7 @@ const ModeloPdf = ( modeloNegocios  : props ) => {
 				Comision Establecida:<span className='font-bold text-base bg-slate-300/60 p-1 rounded-lg'> {numeral(comision).format("$0,0.00")} mxn </span>
 			</h2>
 			<h2 className=' text-base font-medium flex justify-center gap-5  pt-2 border-b-1 border-black/40 pb-1 '>
-				Son:<span className='font-bold text-base bg-slate-300/60 p-1 rounded-lg'>( {numeroALetras(comision)}) <span className='text-xs font-normal'>pesos Mexicanos </span> </span>
+				Son:<span className='font-bold text-base bg-slate-300/60 p-1 rounded-lg'>( {NumerosALetras(comision)}) <span className='text-xs font-normal'>pesos Mexicanos </span> </span>
 			</h2>
 		
 			<div className='grid grid-cols-3 justify-items-center '>

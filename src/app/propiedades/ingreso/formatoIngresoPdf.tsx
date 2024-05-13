@@ -4,8 +4,8 @@ import { IoCheckbox, IoHomeOutline, IoHomeSharp } from 'react-icons/io5'
 
 import moment from 'moment'
 import 'moment/locale/es';
-import { numeroALetras } from '@/lib/formatearNumerosaLetras';
 import { Image } from '@nextui-org/react';
+import { NumerosALetras } from '@/app/lib/formatearNumerosaLetras';
 
 interface props { 
 	props : ModeloNegocios
@@ -79,7 +79,7 @@ const FormatoIngresoPdf = ( modeloNegocios  : props ) => {
 				Costo de venta:<span className='font-bold text-base bg-slate-300/60 p-1 rounded-lg'> {numeral(precioTerreno).format("$0,0.00")} mxn </span>
 			</h2>
 			<h2 className=' text-base font-medium flex justify-center gap-5  pt-1 border-b-1 border-black/40  '>
-				Son:<span className='font-bold text-base bg-slate-300/60 p-1 rounded-lg'>( {numeroALetras(precioTerreno)}) <span className='text-xs font-normal'>pesos Mexicanos </span> </span>
+				Son:<span className='font-bold text-base bg-slate-300/60 p-1 rounded-lg'>( {NumerosALetras(precioTerreno)}) <span className='text-xs font-normal'>pesos Mexicanos </span> </span>
 			</h2>
 			<h2 className=' text-base font-medium flex justify-between capitalize pt-1 border-b-1 border-black/40 '>
 				Comisión Total:<span className='font-bold text-base bg-slate-300/60 p-1 rounded-lg'> {numeral(comision).format("$0,0.00")} mxn </span>
