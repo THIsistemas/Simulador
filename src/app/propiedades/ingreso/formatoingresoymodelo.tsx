@@ -47,23 +47,23 @@ const FormatoIngresoyModeloPdf = ( modeloNegocios  : props ) => {
 			Fecha de Ingreso: <span className='font-sm text-sm bg-slate-300/60 p-1 rounded-lg capitalize'> {moment(new Date()).format("LL")} </span>
 			</h2>
 			</div>
-			<div className=' justify-between flex items-center justify-items-center border-b-1 border-black/40 '>
-			<h2 className=' text-sm font-medium flex justify-center items-center capitalize gap-12 pt-1  pb-1'>
-			Nombre de la Propiedad: <span className='font-semibold text-sm bg-slate-300/60 p-1 rounded-lg'> {asesor.nombre} </span>
+			<div className=' justify-between  items-center justify-items-center  '>
+			<h2 className=' text-sm font-medium flex justify-between capitalize gap-12 pt-1  pb-1 border-b-1 border-black/40'>
+			Nombre de la Propiedad: <span className='font-semibold text-sm bg-slate-300/60 p-1 rounded-lg'> {propiedad} </span>
 			</h2>
-					<h2 className=' text-sm font-medium flex justify-between  pt-0  '>
+					<h2 className=' text-sm font-medium flex justify-between  pt-0 border-b-1 border-black/40  '>
 				Ubicación:<span className='font-bold text-sm bg-slate-300/60 p-1 rounded-lg'> {cliente.direccion}  </span>
 			</h2>
 		
 					
 			</div>
 			
-			<div className='justify-evenly flex border-b-1 border-black/40'>
+			<div className='justify-between flex border-b-1 items-center border-black/40'>
 			
-			<h2 className=' text-sm font-medium flex justify-center items-center capitalize gap-12 pt-1  pb-1'>
+			<h2 className=' text-sm font-medium flex justify-center  capitalize gap-24 pt-1  pb-1'>
 				Nombre del Cliente: <span className='font-semibold text-sm bg-slate-300/60 p-1 rounded-lg'> {cliente.nombre} </span>
 			</h2>
-			<h2 className=' text-sm font-medium flex justify-center items-center capitalize gap-24 pt-0  '>
+			<h2 className=' text-sm font-medium flex justify-center  capitalize gap-24 pt-0  '>
 				Teléfono: <span className='font-sm text-sm bg-slate-300/60 p-1 rounded-lg capitalize'> {cliente.telefono} </span>
 			</h2>
 			</div>
@@ -100,16 +100,19 @@ const FormatoIngresoyModeloPdf = ( modeloNegocios  : props ) => {
 			<h2 className=' text-sm font-medium flex justify-center gap-5  pt-0 border-b-1 border-black/40  '>
 				Son:<span className='font-bold text-sm bg-slate-300/60 p-1 rounded-lg'>( {NumerosALetras(precioTerreno)}) <span className='text-xs font-normal'>pesos Mexicanos </span> </span>
 			</h2>
-			<h2 className=' text-sm font-medium flex justify-between  pt-0 border-b-1 border-black/40 '>
+			<div className='flex justify-between pt-0 border-b-1 border-black/40'>
+			<h2 className=' text-sm font-medium flex justify-between  items-center   '>
 				Superficie del Terreno:<span className='font-bold text-sm bg-slate-300/60 p-1 rounded-lg'> {metrosCuadrados} m² </span>
 			</h2>
-			<h2 className=' text-sm font-medium flex justify-between  pt-0 border-b-1 border-black/40 '>
+			<h2 className=' text-sm font-medium flex justify-between items-center  pt-0 '>
 				Superficie de Construcción:<span className='font-bold text-sm bg-slate-300/60 p-1 rounded-lg'> {metrosConstruidos} m² </span>
 			</h2>
+			</div>
 			
-			<h2 className=' text-sm font-medium flex justify-between  pt-0 border-b-1 border-black/40 '>
+			
+			{/* <h2 className=' text-sm font-medium flex justify-between  pt-0 border-b-1 border-black/40 '>
 				Precio X M²:<span className='font-bold text-sm bg-slate-300/60 p-1 rounded-lg'> {numeral(precioxm2).format("$0,0")} Mxn </span>
-			</h2>
+			</h2> */}
 			<h2 className=' text-sm font-medium flex justify-between  pt-0  '>
 				Tipos de Credito<span className='font-bold text-sm bg-slate-300/60 p-1 rounded-lg'> {credito}  </span>
 			</h2>
