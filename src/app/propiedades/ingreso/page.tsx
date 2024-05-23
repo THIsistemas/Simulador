@@ -353,7 +353,7 @@ const handleSetCliente = (
     <div className=' hidden  bg-white pt-10'>
       <FormatoIngresoPdf props= {modeloNegocios}/>
     </div> */}
-    <div className='mr-8 ml-8'>
+    <div className='hidden print:block mr-8 ml-8'>
       <FormatoIngresoyModeloPdf props= {modeloNegocios}/>
     </div>
     </main>
