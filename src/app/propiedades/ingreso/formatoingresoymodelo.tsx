@@ -95,7 +95,7 @@ const FormatoIngresoyModeloPdf = ( modeloNegocios  : props ) => {
 			</div>
 			<div className=' border-b-1 border-black/40'>
 			<h2 className=' text-sm font-medium flex justify-between capitalize pt-0 border-b-1 border-black/40 '>
-				Costo de venta:<span className='font-bold text-sm bg-slate-300/60 p-1 rounded-lg'> {numeral(precioTerreno).format("$0,0.00")} mxn </span>
+				Costo de venta:<span className='font-bold text-sm bg-slate-300/60 p-1 rounded-lg'> {numeral(precioTerreno).format("$0,0")} Mxn </span>
 			</h2>
 			<h2 className=' text-sm font-medium flex justify-center gap-5  pt-0 border-b-1 border-black/40  '>
 				Son:<span className='font-bold text-sm bg-slate-300/60 p-1 rounded-lg'>( {NumerosALetras(precioTerreno)}) <span className='text-xs font-normal'>pesos Mexicanos </span> </span>
@@ -108,7 +108,7 @@ const FormatoIngresoyModeloPdf = ( modeloNegocios  : props ) => {
 			</h2>
 			
 			<h2 className=' text-sm font-medium flex justify-between  pt-0 border-b-1 border-black/40 '>
-				Precio X M²:<span className='font-bold text-sm bg-slate-300/60 p-1 rounded-lg'> {numeral(precioxm2).format("$0,0.00")} mxn </span>
+				Precio X M²:<span className='font-bold text-sm bg-slate-300/60 p-1 rounded-lg'> {numeral(precioxm2).format("$0,0")} Mxn </span>
 			</h2>
 			<h2 className=' text-sm font-medium flex justify-between  pt-0  '>
 				Tipos de Credito<span className='font-bold text-sm bg-slate-300/60 p-1 rounded-lg'> {credito}  </span>
@@ -127,7 +127,7 @@ const FormatoIngresoyModeloPdf = ( modeloNegocios  : props ) => {
 			</div>
 			<div className='flex justify-between border-b-1 border-black/40'>
 				<h2 className=' text-sm font-medium flex justify-between  items-center pt-1  pb-1'>
-				Comision Establecida:<span className='font-bold text-sm bg-slate-300/60 p-1 rounded-lg'> {numeral(comision).format("$0,0.00")} mxn </span>
+				Comision Establecida:<span className='font-bold text-sm bg-slate-300/60 p-1 rounded-lg'> {numeral(comision).format("$0,0")} Mxn </span>
 			</h2>
 			<h2 className=' text-sm font-medium flex justify-center gap-5  items-center pt-1  pb-1 '>
 				Son:<span className='font-bold text-sm bg-slate-300/60 p-1 rounded-lg'>( {NumerosALetras(comision)}) <span className='text-xs font-normal'>pesos Mexicanos </span> </span>
@@ -137,13 +137,13 @@ const FormatoIngresoyModeloPdf = ( modeloNegocios  : props ) => {
 		
 			<div className='grid grid-cols-3 justify-items-center items-center  border-b-1 border-black/40'>
 			<h2 className=' text-sm font-medium flex justify-between items-center  pt-1  pb-1'>
-				Comision THI:<span className='font-bold text-sm bg-slate-300/60 p-1 rounded-lg'> {numeral(comisionThi).format("$0,0.00")} mxn </span>
+				Comision THI:<span className='font-bold text-sm bg-slate-300/60 p-1 rounded-lg'> {numeral(comisionThi).format("$0,0")} Mxn </span>
 			</h2>
 			<h2 className=' text-sm font-medium flex justify-between items-center  pt-1  pb-1'>
-				Comision Ingresador:<span className='font-bold text-sm bg-slate-300/60 p-1 rounded-lg'> {numeral(comisionIngresador).format("$0,0.00")} mxn </span>
+				Comision Ingresador:<span className='font-bold text-sm bg-slate-300/60 p-1 rounded-lg'> {numeral(comisionIngresador).format("$0,0")} Mxn </span>
 			</h2>
 			<h2 className=' text-sm font-medium flex justify-between items-center  pt-1  pb-1'>
-				Comision Cerrador:<span className='font-bold text-sm bg-slate-300/60 p-1 rounded-lg'> {numeral(comisionCerrador).format("$0,0.00")} mxn </span>
+				Comision Cerrador:<span className='font-bold text-sm bg-slate-300/60 p-1 rounded-lg'> {numeral(comisionCerrador).format("$0,0")} Mxn </span>
 			</h2>
 			
 			</div>
