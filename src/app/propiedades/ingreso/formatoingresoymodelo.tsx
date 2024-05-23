@@ -147,7 +147,7 @@ const FormatoIngresoyModeloPdf = ( modeloNegocios  : props ) => {
 			</h2>
 			
 			</div>
-			<div className='grid grid-cols-2 justify-evenly gap-4'>
+			<div className='grid grid-cols-3 justify-evenly gap-4'>
 				
 				<h2 className=' text-sm font-medium flex flex-col justify-center items-center capitalize border-t-2 border-black/40 mt-20'>
 				<span className=' text-sm  p-1 uppercase '> Lic. Miguel Ángel Rodriguez Torres </span>
@@ -165,6 +165,14 @@ const FormatoIngresoyModeloPdf = ( modeloNegocios  : props ) => {
 				<h2 className=' text-sm font-medium flex flex-col justify-center items-center capitalize  border-t-2 border-black/40 mt-20'>
 				
 				<span className=' text-sm'> PRODUCCIÓN / MERCADOTECNIA </span>
+				</h2>
+				<h2 className=' text-sm font-medium flex flex-col justify-center items-center capitalize  border-t-2 border-black/40 mt-20'>
+				
+				<span className=' text-sm uppercase '> Asesor {asesor.nombre} </span>
+				</h2>
+				<h2 className=' text-sm font-medium flex flex-col justify-center items-center capitalize  border-t-2 border-black/40 mt-20'>
+				
+				<span className=' text-sm uppercase '> Cliente {cliente.nombre} </span>
 				</h2>
 			</div>
 			</div>
