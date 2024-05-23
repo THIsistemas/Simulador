@@ -3,6 +3,7 @@ import { Button, Input, Select, SelectItem, Textarea } from '@nextui-org/react'
 import React, { useState } from 'react'
 import ModeloPdf from './modeloPdf'
 import FormatoIngresoPdf from './formatoIngresoPdf'
+import FormatoIngresoyModeloPdf from './formatoingresoymodelo'
 
 
 export interface ModeloNegocios {
@@ -346,11 +347,14 @@ const handleSetCliente = (
       </div>
       
       </form>
-      <div className='   hidden print:block bg-white pb-10'>
+     {/*  <div className='   hidden bg-white pb-10'>
       <ModeloPdf props= {modeloNegocios}/>
       </div>
-    <div className=' hidden print:block bg-white pt-10'>
+    <div className=' hidden  bg-white pt-10'>
       <FormatoIngresoPdf props= {modeloNegocios}/>
+    </div> */}
+    <div className='mr-8 ml-8'>
+      <FormatoIngresoyModeloPdf props= {modeloNegocios}/>
     </div>
     </main>
    
