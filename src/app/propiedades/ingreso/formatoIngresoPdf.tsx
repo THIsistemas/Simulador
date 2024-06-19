@@ -1,11 +1,11 @@
 import React from 'react'
+import { ModeloNegocios } from './page'
 import { IoCheckbox, IoHomeOutline, IoHomeSharp } from 'react-icons/io5'
 
 import moment from 'moment'
 import 'moment/locale/es';
 import { Image } from '@nextui-org/react';
 import { NumerosALetras } from '@/app/lib/formatearNumerosaLetras';
-import { ModeloNegocios } from './page';
 
 interface props { 
 	props : ModeloNegocios
