@@ -37,8 +37,8 @@ const FormatoIngresoyModeloPdf = ( modeloNegocios  : props ) => {
 
   return (
 	
-		<div className=' grid justify-center bg-white text-black'>
-			<div className='flex  items-center justify-center '>
+		<div className='grid justify-center  bg-white text-black'>
+			<div className='flex items-center justify-center '>
 				<h1 className='text-xl items-center justify-center uppercase font-bold text-center bg-primary text-white  p-2'>
 				FORMATO DE INGRESO DE PROPIEDAD
 			</h1>

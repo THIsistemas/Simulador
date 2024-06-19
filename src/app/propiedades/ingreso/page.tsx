@@ -4,6 +4,8 @@ import React, { useState } from 'react'
 import ModeloPdf from './modeloPdf'
 import FormatoIngresoPdf from './formatoIngresoPdf'
 import FormatoIngresoyModeloPdf from './formatoingresoymodelo'
+import { FormatodeIngresoPDf } from './formatoingresomodelo'
+import FormatoIngreso from './formatoingreso'
 
 
 export interface ModeloNegocios {
@@ -225,8 +227,8 @@ const handleSetCliente = (
   }
 
   return (
-    <main className='bg-white  w-full'>
-       <form action="submit" className=" p-5 bg-slate-200/90 h-auto w-full rounded-xl shadow-2xl print:hidden">
+    <main className='bg-white'>
+       <form action="submit" className=" p-5 bg-slate-200/90 h-auto w-full rounded-xl shadow-2xl print:hidden ">
 			<h2 className="p-5 font-bold text-4xl  text-primary/100 pb-5 text-center">
 			Registra una Propiedad
 			</h2>
@@ -347,13 +349,8 @@ const handleSetCliente = (
       </div>
       
       </form>
-     {/*  <div className='   hidden bg-white pb-10'>
-      <ModeloPdf props= {modeloNegocios}/>
-      </div>
-    <div className=' hidden  bg-white pt-10'>
-      <FormatoIngresoPdf props= {modeloNegocios}/>
-    </div> */}
-    <div className='hidden print:block mr-8 ml-8'>
+
+    <div className=' print:block mt-8 m-8'>
       <FormatoIngresoyModeloPdf props= {modeloNegocios}/>
     </div>
     </main>
