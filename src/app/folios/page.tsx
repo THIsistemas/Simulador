@@ -5,6 +5,7 @@ import {parseDate, getLocalTimeZone , parseAbsoluteToLocal,today} from "@interna
 import { AbonoPDF } from './foliopdf';
 import { IoDocumentTextOutline } from 'react-icons/io5';
 import dynamic from 'next/dynamic';
+import moment from 'moment';
 
 export interface Folio {
 tipo	 		: 		"Egreso" | "Ingreso"
@@ -72,8 +73,14 @@ const handleSetFolio = (
     setFolio((dataValue) => ({ ...dataValue, [name]: value }));
 
   };
-
-
+const numeral = require("numeral")
+    let metodo :string
+    if (folio.metodoDePago==="Efectivo") {
+       metodo = "E"
+    } else {
+      metodo = "B" }
+const fhcreacion = moment(new Date()).format('MMMM/YYYY')
+const folioString = `${folio.tipo.charAt(0)}${metodo}/${fhcreacion}/${numeral(folio.folio).format("000")}`
 
 useEffect(() => {
     setIsClient(true);
@@ -178,7 +185,7 @@ useEffect(() => {
 			folio.folio ? <PDFDownloadLink className=" h-auto" 
 			document={< AbonoPDF folio={folio} fecha={fecha}
 			/>} 
-			fileName={`Folio_${folio.folio}`}>
+			fileName={`${folioString}`}>
 			{({ blob, url, loading, error }) => (loading ? "" :  
 			<Tooltip content="Descargar Saldos"  color="danger" className="text-white"  > 
 				<p className="bg-primary text-white print:hidden  w-full block p-4 rounded-md"> Imprimir </p>  
