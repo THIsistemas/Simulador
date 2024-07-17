@@ -1,11 +1,11 @@
 "use client"
 import { DatePicker, Input, Select, SelectItem, Textarea, Tooltip } from '@nextui-org/react'
 import React, { useEffect, useState } from 'react'
-import {parseDate, getLocalTimeZone , parseAbsoluteToLocal,today} from "@internationalized/date";
 import { AbonoPDF } from './foliopdf';
 import { IoDocumentTextOutline } from 'react-icons/io5';
 import dynamic from 'next/dynamic';
 import moment from 'moment';
+import { getLocalTimeZone, now } from '@internationalized/date';
 
 export interface Folio {
 tipo	 		: 		"Egreso" | "Ingreso"
@@ -63,7 +63,7 @@ const [isClient, setIsClient] = useState(false);
 
 const [folio , setFolio] = useState<Folio>(defaultFolio)
  const [fecha, setFecha] = useState(
-  today(getLocalTimeZone()).subtract({days: 1}),
+  now(getLocalTimeZone()).subtract({days: 1}),
   );
 
 const handleSetFolio = (

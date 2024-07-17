@@ -43,7 +43,7 @@ export const AbonoPDF = ({folio, fecha}:props) =>
 	<Text style={styles.title}>{folio.tipo} </Text>
 	<Text style={styles.title2}> {folioString} </Text>
 	<Text style={styles.title3}>         DD  MM  AAAA</Text>
-	<Text style={styles.title2}>FECHA: {moment(fecha).format("L")}</Text>
+	<Text style={styles.title2}>FECHA: {moment(fecha.toDate(getLocalTimeZone())).format("L")}</Text>
 		<Image style={styles.image} src={"/Logo.png"}>
 		</Image>
 		<View style={styles.div}>
