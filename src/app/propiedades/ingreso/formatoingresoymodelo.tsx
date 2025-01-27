@@ -21,6 +21,7 @@ const FormatoIngresoyModeloPdf = ( modeloNegocios  : props ) => {
 		comisionCerrador,
 		comisionIngresador,
 		comisionThi,
+		ganancias,
 		valorEsperado,
 		metrosCuadrados,
 		metrosConstruidos,
@@ -118,9 +119,9 @@ const FormatoIngresoyModeloPdf = ( modeloNegocios  : props ) => {
 			</h2>
 			</div>
 			<p>Descripcion de la Propiedad</p>
-				<div className='w-full border border-black '>
+			<div className='w-full border border-black '>
 				<p className='font-bold text-tiny bg-slate-300/60 p-2 rounded-lg'> {descripcion} </p>
-				</div>
+			</div>
 
 			<div className='flex  items-center justify-center pt-8 '>
 			<h1 className='text-2xl uppercase font-bold text-center bg-primary text-white h-auto w-auto p-4'>
@@ -138,16 +139,19 @@ const FormatoIngresoyModeloPdf = ( modeloNegocios  : props ) => {
 			</div>
 			
 		
-			<div className='grid grid-cols-3 justify-items-center items-center  border-b-1 border-black/40'>
-			<h2 className=' text-sm font-medium flex justify-between items-center  pt-1  pb-1'>
-				Comision THI:<span className='font-bold text-sm bg-slate-300/60 p-1 rounded-lg'> {numeral(comisionThi).format("$0,0")} Mxn </span>
-			</h2>
-			<h2 className=' text-sm font-medium flex justify-between items-center  pt-1  pb-1'>
-				Comision Ingresador:<span className='font-bold text-sm bg-slate-300/60 p-1 rounded-lg'> {numeral(comisionIngresador).format("$0,0")} Mxn </span>
-			</h2>
-			<h2 className=' text-sm font-medium flex justify-between items-center  pt-1  pb-1'>
-				Comision Cerrador:<span className='font-bold text-sm bg-slate-300/60 p-1 rounded-lg'> {numeral(comisionCerrador).format("$0,0")} Mxn </span>
-			</h2>
+			<div className='grid grid-cols-4 justify-items-center items-center  border-b-1 border-black/40'>
+				<h2 className=' text-sm font-medium flex justify-between items-center  pt-1  pb-1'>
+					Comision THI:<span className='font-bold text-sm bg-slate-300/60 p-1 rounded-lg'> {numeral(comisionThi).format("$0,0")} Mxn </span>
+				</h2>
+				<h2 className=' text-sm font-medium flex justify-between items-center  pt-1  pb-1'>
+					Comision Ingresador:<span className='font-bold text-sm bg-slate-300/60 p-1 rounded-lg'> {numeral(comisionIngresador).format("$0,0")} Mxn </span>
+				</h2>
+				<h2 className=' text-sm font-medium flex justify-between items-center  pt-1  pb-1'>
+					Comision Cerrador:<span className='font-bold text-sm bg-slate-300/60 p-1 rounded-lg'> {numeral(comisionCerrador).format("$0,0")} Mxn </span>
+				</h2>
+				<h2 className=' text-sm font-medium flex justify-between items-center  pt-1  pb-1'>
+					Ganancias:<span className='font-bold text-sm bg-slate-300/60 p-1 rounded-lg'> {numeral(ganancias).format("$0,0")} Mxn </span>
+				</h2>
 			
 			</div>
 			<div className='grid grid-cols-3 justify-evenly gap-4'>

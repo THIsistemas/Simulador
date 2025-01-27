@@ -22,6 +22,7 @@ export interface ModeloNegocios {
   comisionThi: number
   comisionIngresador : number
   comisionCerrador : number
+  ganancias : number
   descripcion: string
   documentos: string
   asesor: Asesor
@@ -124,6 +125,7 @@ const defaultModeloNegociosData:ModeloNegocios = {
       comisionThi: 0,
       comisionIngresador : 0,
       comisionCerrador : 0,
+      ganancias: 0,
       credito : "",
       descripcion:"",
       documentos: "",
@@ -163,6 +165,9 @@ const inputsModeloNegocios = [
   } ,
   {label : "Comision para el Cerrador (En Porcentaje) % ",
     id: "comisionCerrador"
+  } ,
+  {label : "Ganancias para la empresa ",
+    id: "ganancias"
   } ,
  
 ]
@@ -213,14 +218,15 @@ const handleSetCliente = (
     await setModeloNegocios(defaultModeloNegociosData)
 
     await setModeloNegocios( {
-    ...modeloNegocios,
-    comisionThi: comisionThiFlag,
-    comisionIngresador: comisionIngresadorFlag,
-    comisionCerrador: comisionCerradorFlag,
-    precioxm2: preciom2flag,
-    cliente,
-    asesor
-  })
+      ...modeloNegocios,
+      comisionThi: comisionThiFlag,
+      comisionIngresador: comisionIngresadorFlag,
+      comisionCerrador: comisionCerradorFlag,
+      //ganancias: ganancias,
+      precioxm2: preciom2flag,
+      cliente,
+      asesor
+    })
 
     window.print();
   
